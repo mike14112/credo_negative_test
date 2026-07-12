@@ -6,13 +6,11 @@ Automation tests for negative authorization scenarios of MyCredo Business Intern
 
 The provided task link pointed to the beta version of MyCredo Business Internet Banking.
 
-During implementation, it was found that the required multilingual functionality (Megrelian, and Svan languages) was available only on the legacy version of the authorization page.
+During implementation, it was found that the beta version supports only the Georgian language and does not include Megrelian and Svan language support. The required support for all three languages (Georgian, Megrelian, and Svan) is available only on the legacy authorization page.
 
-Therefore, the automated tests were implemented on:
+Therefore, the automated tests were implemented against the legacy version:
 
-```
 https://old.mycredo.ge/landing/main/auth
-```
 
 ## Tech Stack
 
