@@ -13,7 +13,6 @@ class Browser:
     def __init__(self):
         options.add_argument(config.get("screen_size"))
         options.add_argument(config.get("no_sandbox"))
-        options.add_argument(config.get('headless'))
         self.driver = webdriver.Chrome(options=options)
 
     def get_driver(self):

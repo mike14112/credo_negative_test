@@ -33,9 +33,6 @@ def test_negative_ka(browser, user_name, password):
     with allure.step("Open login page"):
         browser.driver.get(config.get("login_url"))
 
-    with allure.step("Wait unique element for login page"):
-        login_page.unique_elem()
-
     with allure.step("Open language selector"):
         login_page.language_selector.click_btn_open_popup()
 

@@ -9,8 +9,8 @@ from utils.env import Env
 faker = Faker()
 
 config = ConfigReader(env=Env.DEV.value)
-EXCEPTED_ERROR_TEXT = 'არასწორ ამბა̈რ'.lower().strip()
-EXCEPTED_LANG = 'პაროლიშ ემიგრ მიხა̈რ'.strip().lower()
+EXCEPTED_ERROR_TEXT = 'მონაცემოლ სწორ დემეგ ლი'.lower().strip()
+EXCEPTED_LANG = 'მონაცემოლე აღდგენა'.strip().lower()
 
 
 @allure.feature('Authorization for login')
@@ -33,9 +33,6 @@ def test_negative_svanuri(browser, user_name, password):
     with allure.step("Open login page"):
         browser.driver.get(config.get("login_url"))
 
-    with allure.step("Wait unique element for login page"):
-        login_page.unique_elem()
-
     with allure.step("Open language selector"):
         login_page.language_selector.click_btn_open_popup()
 
@@ -43,7 +40,7 @@ def test_negative_svanuri(browser, user_name, password):
         login_page.language_selector.click_btn_svanuri_lang()
 
     with allure.step("Verify that the page switched to Svanuri language"):
-        actual_language_text = login_page.get_text()
+        actual_language_text = login_page.get_changing_text(EXCEPTED_LANG)
         assert EXCEPTED_LANG in actual_language_text, f'Excepted  message: {EXCEPTED_LANG} not in {actual_language_text}'
 
     with allure.step(f"Fill username: {user_name}"):

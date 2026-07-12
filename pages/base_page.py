@@ -1,3 +1,6 @@
+from elements.web_element import WebElement
+
+
 class BasePage:
     LOC_UNIQUE_ELEM = None
 
@@ -6,5 +9,5 @@ class BasePage:
         self.page_name = None
         self.unique_elem = None
 
-    def wait_for_element(self):
+    def wait_unique_elem(self):
         return self.unique_elem.wait_for_presence()

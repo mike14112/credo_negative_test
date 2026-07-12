@@ -9,8 +9,8 @@ from utils.env import Env
 faker = Faker()
 
 config = ConfigReader(env=Env.DEV.value)
-EXCEPTED_ERROR_TEXT = 'მონაცემეფიშ სწორ ვა რე'.lower().strip()
-EXCEPTED_ACTUAL_LANG = 'მონაცემეფიშ ეკონწყუმა'.strip().lower()
+EXCEPTED_ERROR_TEXT = 'მუნაჩემეფი ვა რე თინუ'.lower().strip()
+EXCEPTED_ACTUAL_LANG = 'მუნაჩემუეფიშ ახალშო ენწყუალა'.strip().lower()
 
 
 @allure.feature('Authorization for login')
@@ -33,9 +33,6 @@ def test_negative_megruli(browser, user_name, password):
     with allure.step("Open login page"):
         browser.driver.get(config.get("login_url"))
 
-    with allure.step("Wait unique element for login page"):
-        login_page.unique_elem()
-
     with allure.step("Open language selector"):
         login_page.language_selector.click_btn_open_popup()
 
@@ -43,7 +40,7 @@ def test_negative_megruli(browser, user_name, password):
         login_page.language_selector.click_btn_megruli_lang()
 
     with allure.step("Verify that the page switched to Megruli"):
-        actual_language_text = login_page.get_text()
+        actual_language_text = login_page.get_changing_text(EXCEPTED_ACTUAL_LANG)
         assert EXCEPTED_ACTUAL_LANG in actual_language_text, (f'Excepted error message: {EXCEPTED_ACTUAL_LANG} '
                                                               f'Not in {actual_language_text}')
 

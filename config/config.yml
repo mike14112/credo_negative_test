@@ -1,8 +1,6 @@
 dev:
-  wait: 30
+  wait: 15
   fast_pull_frequency: 0.01
   screen_size: "--window-size=1920,1080"
   no_sandbox: '--no-sandbox'
-  maximed_window: '--start-maximized'
-  headless: '--headless'
   login_url: 'https://old.mycredo.ge/landing/main/auth'

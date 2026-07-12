@@ -14,7 +14,6 @@ class LoginPage(BasePage):
         super().__init__(browser)
         self.browser = browser
         self.page_name = 'login page'
-        self.unique_elem = WebElement(self.browser, self.LOQ_LANG_TEXT)
         self.lang_text = WebElement(self.browser, self.LOQ_LANG_TEXT)
         self.login_elem = WebElement(self.browser, self.LOQ_LOGIN_INPUT)
         self.password_elem = WebElement(self.browser, self.LOQ_PASSWORD_INPUT)
@@ -22,6 +21,9 @@ class LoginPage(BasePage):
         self.error_text = WebElement(self.browser, self.LOQ_ERROR_TXT)
 
         self.language_selector = LanguageSelector(self.browser)
+
+    def get_changing_text(self, text):
+        return self.lang_text.wait_until_text_contains(text)
 
     def get_text(self):
         return self.lang_text.get_text()

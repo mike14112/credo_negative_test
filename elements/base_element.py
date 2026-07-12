@@ -44,6 +44,12 @@ class BaseElement:
         element = self.wait_for_presence()
         return element.text
 
+    def wait_until_text_contains(self, expected_text):
+        WebDriverWait(self.browser.driver, self.wait).until(
+            lambda driver: expected_text.strip() in self.get_text().strip()
+        )
+        return self.get_text()
+
     def click(self):
         element = self.wait_for_visibility()
         element.click()
