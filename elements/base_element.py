@@ -58,3 +58,11 @@ class BaseElement:
         element = self.wait_for_presence()
         element.clear()
         return element.send_keys(keys)
+
+    def clear_field(self):
+        element = self.wait_for_presence()
+        element.clear()
+
+    def btn_is_enabled(self):
+        element = self.wait_for_presence()
+        return element.is_enabled()

@@ -13,7 +13,7 @@ EXCEPTED_ERROR_TEXT = 'მუნაჩემეფი ვა რე თინუ
 EXCEPTED_ACTUAL_LANG = 'მუნაჩემუეფიშ ახალშო ენწყუალა'.strip().lower()
 
 
-@allure.feature('Authorization for login')
+@allure.feature('Authorization for login Megruli language')
 @allure.story("Login with invalid credentials in Megrelian language")
 @pytest.mark.parametrize('user_name, password',
                          [(faker.password(length=1, special_chars=False, digits=False, upper_case=False,

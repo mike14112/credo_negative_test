@@ -13,7 +13,7 @@ EXCEPTED_ERROR_TEXT = 'მონაცემოლ სწორ დემეგ 
 EXCEPTED_LANG = 'მონაცემოლე აღდგენა'.strip().lower()
 
 
-@allure.feature('Authorization for login')
+@allure.feature('Authorization for login Svanuri language')
 @allure.story("Login with invalid credentials in Svanuri language")
 @pytest.mark.parametrize('user_name, password',
                          [(faker.password(length=1, special_chars=False, digits=False, upper_case=False,

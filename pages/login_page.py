@@ -15,8 +15,8 @@ class LoginPage(BasePage):
         self.browser = browser
         self.page_name = 'login page'
         self.lang_text = WebElement(self.browser, self.LOQ_LANG_TEXT)
-        self.login_elem = WebElement(self.browser, self.LOQ_LOGIN_INPUT)
-        self.password_elem = WebElement(self.browser, self.LOQ_PASSWORD_INPUT)
+        self.login_input = WebElement(self.browser, self.LOQ_LOGIN_INPUT)
+        self.password_input = WebElement(self.browser, self.LOQ_PASSWORD_INPUT)
         self.btn_sign_in = WebElement(self.browser, self.LOQ_BTN_SIGN_IN)
         self.error_text = WebElement(self.browser, self.LOQ_ERROR_TXT)
 
@@ -29,13 +29,21 @@ class LoginPage(BasePage):
         return self.lang_text.get_text()
 
     def fill_login_form(self, text):
-        self.login_elem.send_keys(text)
+        self.login_input.send_keys(text)
 
     def fill_password_form(self, text):
-        self.password_elem.send_keys(text)
+        self.password_input.send_keys(text)
+
+    def clear_input_login(self):
+        self.login_input.clear_field()
+    def clear_input_password(self):
+        self.password_input.clear_field()
 
     def click_btn_login(self):
         self.btn_sign_in.click()
+
+    def is_login_button_enabled(self):
+        self.btn_sign_in.btn_is_enabled()
 
     def get_error(self):
         return self.error_text.get_text()
